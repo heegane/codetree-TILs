@@ -28,8 +28,11 @@ def bfs(x, y):
 
 
 r1, c1, r2, c2 = map(int, input().split())
-bfs(r1 - 1, c1 - 1)
-if step[r2 - 1][c2 - 1] == 0:
-    print(-1)
+if r1 == r2 and c1 == c2:
+    print(0)
 else:
-    print(step[r2 - 1][c2 - 1])
+    bfs(r1 - 1, c1 - 1)
+    if step[r2 - 1][c2 - 1] == 0:
+        print(-1)
+    else:
+        print(step[r2 - 1][c2 - 1])
