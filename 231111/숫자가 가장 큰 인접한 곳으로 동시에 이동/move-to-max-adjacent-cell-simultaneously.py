@@ -19,14 +19,10 @@ def move(x, y, move_location):
                 max_value = arr[next_x][next_y]
                 max_x = next_x
                 max_y = next_y
-    # 움직임이 없다면
-    if max_x == -1 and max_y == -1:
-        locations[x][y] = 0
-        # 구슬 이동이 없어서 충돌이 나지 않았음을 의미
-        move_location[x][y] = -1
-    else:
-        locations[x][y] = 0
-        move_location[max_x][max_y] += 1
+
+    # 숫자가 큰 쪽으로 구슬을 움직여줌
+    locations[x][y] = 0
+    move_location[max_x][max_y] += 1
 
 
 # 충돌났는지 확인하는 함수
@@ -51,11 +47,12 @@ for _ in range(t):
                 move(i, j, move_location)
     check(move_location)
     locations = move_location
+    move_location = [[0] * n for _ in range(n)]
 
 # 구슬의 수 출력
 result = 0
 for i in range(n):
     for j in range(n):
-        if locations[i][j] == 1 or locations[i][j] == -1:
+        if locations[i][j] == 1:
             result += 1
 print(result)
