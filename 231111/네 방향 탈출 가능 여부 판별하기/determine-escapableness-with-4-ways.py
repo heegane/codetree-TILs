@@ -23,7 +23,7 @@ def bfs(x, y):
         for i in range(4):
             next_x = x + dxs[i]
             next_y = y + dys[i]
-            if 0 <= next_x < n and 0 <= next_y < n:
+            if 0 <= next_x < n and 0 <= next_y < m:
                 if arr[next_x][next_y] == 1 and visited[next_x][next_y] == 0:
                     visited[next_x][next_y] = 1
                     q.append([next_x, next_y])
