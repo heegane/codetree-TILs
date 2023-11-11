@@ -19,9 +19,11 @@ def move(x, y, move_location):
                 max_value = arr[next_x][next_y]
                 max_x = next_x
                 max_y = next_y
+    # 움직임이 없다면
     if max_x == -1 and max_y == -1:
         locations[x][y] = 0
-        move_location[x][y] += 1
+        # 구슬 이동이 없어서 충돌이 나지 않았음을 의미
+        move_location[x][y] = -1
     else:
         locations[x][y] = 0
         move_location[max_x][max_y] += 1
@@ -54,6 +56,6 @@ for _ in range(t):
 result = 0
 for i in range(n):
     for j in range(n):
-        if locations[i][j] == 1:
+        if locations[i][j] == 1 or locations[i][j] == -1:
             result += 1
 print(result)
