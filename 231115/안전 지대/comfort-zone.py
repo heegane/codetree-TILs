@@ -23,7 +23,7 @@ def dfs(start_x, start_y, k):
                 dfs(next_x, next_y, k)
 
 
-for k in range(1, max_height):
+for k in range(1, max_height + 1):
     cnt = 0
     visited = [[0] * m for _ in range(n)]
     for i in range(n):
@@ -34,4 +34,4 @@ for k in range(1, max_height):
     result.append((cnt, k))
 
 result.sort(key=lambda x: (-x[0], x[1]))
-print("%d %d" % (result[0][0], result[0][1]))
+print("%d %d" % (result[0][1], result[0][0]))
