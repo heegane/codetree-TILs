@@ -5,7 +5,7 @@ for _ in range(n):
 
 result = []
 answer = []
-for i in range(1, max(hi)):
+for i in range(1, max(hi) - 1):
     temp = hi
     cnt = 0
     for j in range(len(temp)):
